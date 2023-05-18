@@ -34,5 +34,5 @@ function randomGenerator() {
     div2.textContent = randomPassword2
 }
 
-
+window.randomGenerator = randomGenerator
 
