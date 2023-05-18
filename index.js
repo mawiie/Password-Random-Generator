@@ -3,15 +3,17 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 
 let div1 = document.getElementById('first-password')
 let div2 = document.getElementById('second-password')
-
+let error = document.getElementById('Error-Message')
 
 function randomGenerator() {
+    error.textContent = ""
     let passwordLength = document.getElementById("length").value
     
     if (passwordLength === "") {
         passwordLength = 10
     } else if (passwordLength < 5 || passwordLength > 20) {
         console.log("Please keep your password length between 5 and 20 (inclusive)")
+        error.textContent = "Please keep your password length between 5 and 20 (inclusive)"
         return
     }
     
@@ -21,8 +23,8 @@ function randomGenerator() {
         
     for(let i = 0; i < passwordLength; i++) {
         // Get random indices for both divs
-        randomIndex1 = Math.floor(Math.random() * characters.length)
-        randomIndex2 = Math.floor(Math.random() * characters.length)
+        let randomIndex1 = Math.floor(Math.random() * characters.length)
+        let randomIndex2 = Math.floor(Math.random() * characters.length)
         
         // Get the corresponding character from the list and add to the string
         randomPassword1 += characters[randomIndex1]
@@ -34,4 +36,4 @@ function randomGenerator() {
     div2.textContent = randomPassword2
 }
 
-window.randomGenerator = randomGenerator
+document.querySelector('#generator-btn').addEventListener('click', randomGenerator)
