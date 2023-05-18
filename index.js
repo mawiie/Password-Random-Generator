@@ -35,4 +35,3 @@ function randomGenerator() {
 }
 
 window.randomGenerator = randomGenerator
-
